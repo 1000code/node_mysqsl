@@ -10,6 +10,7 @@ const { readdirSync } = require("fs");
 app.use(morgan("dev"));
 app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // =========== import route ==================
 readdirSync("./routes").map((r) => {
@@ -17,7 +18,7 @@ readdirSync("./routes").map((r) => {
 });
 
 // ================== Run server ==============================
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log("Server is running on port", port);
 });
