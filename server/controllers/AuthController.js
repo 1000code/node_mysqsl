@@ -1,14 +1,11 @@
-const db = require("../database/database");
-const { check, validationResult } = require("express-validator");
+const { insertUser } = require("./../models/users");
 
 exports.loginController = (req, res) => {
   const { username, email, password } = req.body;
-  res.send("login");
+  res.send("hello, login");
 };
 
 exports.registerController = async (req, res) => {
-  const { username, email, password } = req.body;
-  res.send(
-    "username: " + username + " email: " + email + " password: " + password
-  );
+  let result = insertUser(req.body);
+  res.send(result);
 };

@@ -3,6 +3,7 @@ const router = express.Router();
 
 const {
   validateLogin,
+  validateRegister,
   userValidate,
 } = require("../middleware/validator/AuthValidate");
 
@@ -15,6 +16,6 @@ const {
 router.post("/login", validateLogin, userValidate, loginController);
 
 // @route   localhost:3000/api/register
-router.post("/register", registerController);
+router.post("/register", validateRegister, userValidate, registerController);
 
 module.exports = router;
