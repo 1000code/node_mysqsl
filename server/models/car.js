@@ -1,6 +1,6 @@
-const db = require("./../database/database");
+const db = require("../Config/Connect");
 
-module.exports.InsertCar = async (data) => {
+module.exports.insertCar = async (data) => {
   const { color, type } = data;
 
   let result = 0;
@@ -9,13 +9,7 @@ module.exports.InsertCar = async (data) => {
     //   const sql = "INSERT INTO cars (color) VALUES (?, ?)";
     const sql = "INSERT INTO `cars`( `color`, `type`) VALUES (?, ?) ";
     const res = db.execute(sql, [color, type]);
-
     result = await res[0].insertId;
-
-    // console.log(res);
-    // console.log(res[0][0]);
-    console.log(res[0]);
-    //
   } catch (error) {
     console.log(error);
   }
@@ -23,7 +17,7 @@ module.exports.InsertCar = async (data) => {
   return result;
 };
 
-module.exports.getCar = async () => {
+module.exports.getAllCar = async () => {
   let result = "";
   try {
     let sql = "SELECT * FROM `cars`";

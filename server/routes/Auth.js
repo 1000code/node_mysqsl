@@ -12,12 +12,9 @@ const {
 const AuthController = require("../controllers/AuthController");
 
 // @route   localhost:3000/api/register
-router.post("/car", AuthController.insertCar);
+router.post("/login", AuthController.login);
 
 // @route   localhost:3000/api/register
-router.get("/car/all", AuthController.getCar);
-
-// @route   localhost:3000/api/register
-router.get("/car/:id", AuthController.getOneCar);
+router.get("/register", AuthController.register);
 
 module.exports = router;
