@@ -42,6 +42,5 @@ module.exports.getOneCar = async (slug) => {
     console.log(error);
   }
 
-  console.log(slug);
   return result;
 };
