@@ -1,13 +1,8 @@
 const db = require("../Config/Connect");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
-exports.insertUser = (data) => {
+exports.Register = async (data) => {
   const { username, password } = data;
-
-  try {
-    let query = "INSERT INTO `members` (`username`, `password`) VALUES (?,?)";
-    db.execute(query, [username, password]);
-    return "ບັນທຶກຂໍ້ມູນສຳເລັດ";
-  } catch (error) {
-    console.log(error);
-  }
+  console.log(username);
 };

@@ -1,6 +1,6 @@
 const { check, validationResult } = require("express-validator");
 
-exports.validateLogin = [
+module.exports.Login = [
   check("username")
     .trim()
     .notEmpty()
@@ -19,7 +19,7 @@ exports.validateLogin = [
     .withMessage("ລະຫັດຜ່ານຕ້ອງປະກອບດວ້ຍຕົວອັກສອນ 8 ຂຶ້ນໄປ"),
 ];
 
-exports.validateRegister = [
+module.exports.Register = [
   check("username")
     .trim()
     .notEmpty()
@@ -48,7 +48,7 @@ exports.validateRegister = [
 ];
 
 // ================================
-exports.userValidate = (req, res, next) => {
+exports.Check = (req, res, next) => {
   const result = validationResult(req).array();
   if (result.length > 0) {
     const error = result[0].msg;
